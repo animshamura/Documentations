@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MLflow Enterprise Reference Documentation</title>
+
+
+<style>
+
+.hero {
+    background: linear-gradient(135deg,#1e3a8a,#2563eb);
+    color:#f8fafc;
+    padding:45px;
+    border-radius:20px;
+    margin-bottom:40px;
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+}
+
+.hero h1 {
+    color:#f8fafc;
+    border:none;
+    margin:0 0 15px;
+    font-size:42px;
+}
+
+.subtitle {
+    font-size:19px;
+    opacity:.95;
+}
+
+.author {
+    margin-top:25px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.3);
+    font-size:17px;
+}
+
+
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family: "Inter","Segoe UI",Arial,sans-serif;
+    background:#0b1220;
+    color:#f8fafc;
+    line-height:1.7;
+    max-width:1200px;
+    margin:auto;
+    padding:35px;
+}
+
+h1 {
+    font-size:38px;
+    margin:35px 0 20px;
+    color:#f8fafc;
+    border-bottom:3px solid #2563eb;
+    padding-bottom:12px;
+}
+
+h2 {
+    margin-top:35px;
+    color:#f8fafc;
+    font-size:28px;
+}
+
+p {
+    font-size:17px;
+    margin:15px 0;
+}
+
+ul {
+    background:#f8fafc;
+    padding:20px 40px;
+    border-radius:14px;
+    margin:20px 0;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+li {
+    margin:8px 0;
+}
+
+pre {
+    background:#111111;
+    color:#0b1220;
+    text-align:center;
+    padding:25px;
+    border-radius:15px;
+    overflow:auto;
+    margin:25px 0;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+code {
+    font-family:"Fira Code",monospace;
+}
+
+hr {
+    border:0;
+    height:2px;
+    margin:45px 0;
+    background:linear-gradient(90deg,#2563eb,transparent);
+}
+
+.highlight {
+    background:#f8fafc;
+    border-left:6px solid #2563eb;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:30px;
+}
+
+pre {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+}
+
+pre code {
+    display:block;
+    text-align:left;
+}
+
+.highlight {
+    background:#0b1220;
+    color:#f8fafc;
+}
+
+.subtitle {
+    color:#0b1220;
+}
+
+@media(max-width:768px){
+    body{padding:15px;}
+    h1{font-size:28px;}
+    h2{font-size:22px;}
+}
+
+
+body {
+    background:#ffffff;
+    color:#000000;
+}
+
+ul {
+    background:#ffffff;
+    color:#111827;
+}
+
+.hero {
+    background:linear-gradient(135deg,#020617,#1e3a8a);
+}
+
+h1, h2, h3 {
+    color:#f8fafc;
+}
+
+p {
+    color:#e5e7eb;
+}
+
+.highlight {
+    background:#111827;
+    color:#f8fafc;
+}
+
+pre {
+    background:#000000;
+    color:#f8fafc;
+    border:1px solid #1f2937;
+    text-align:left;
+}
+
+
+.copy-btn {
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#2563eb;
+    color:#ffffff;
+    border:none;
+    padding:7px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.copy-btn:hover {
+    background:#1d4ed8;
+}
+
+.code-wrapper {
+    position:relative;
+}
+
+
+/* Final visibility fix */
+
+body {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+}
+
+p, li, span, strong {
+    color: #000000 !important;
+}
+
+ul, .highlight {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+pre {
+    background: #4b5563 !important;
+    color: #ffffff !important;
+    text-align: left !important;
+}
+
+pre code {
+    color: #ffffff !important;
+    background: transparent !important;
+}
+
+.copy-btn {
+    color: #ffffff !important;
+    background: #2563eb !important;
+}
+
+.subtitle {
+    color: #ffffff !important;
+}
+
+.hero h1 {
+    color: #ffffff !important;
+}
+
+
+/* Final balance fix */
+
+.hero {
+    background: linear-gradient(135deg,#1e3a8a,#2563eb) !important;
+    color:white !important;
+}
+
+.hero h1,
+.hero p,
+.author,
+.author strong {
+    color:white !important;
+}
+
+pre,
+pre code {
+    background:#4b5563 !important;
+    color:white !important;
+}
+
+pre {
+    padding:25px !important;
+    border-radius:14px !important;
+}
+
+p, li {
+    color:#000000 !important;
+}
+
+h1, h2, h3 {
+    color:#000000 !important;
+}
+
+
+/* Code section final theme */
+
+pre {
+    background:#d1d5db !important;
+    color:#000000 !important;
+    text-align:left !important;
+    border:1px solid #9ca3af !important;
+}
+
+pre code {
+    background:transparent !important;
+    color:#000000 !important;
+}
+
+.copy-btn {
+    background:#2563eb !important;
+    color:#ffffff !important;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hero">
+<h1>MLflow Enterprise Reference Documentation</h1>
+
+<p class="subtitle">
+A complete enterprise guide covering MLOps lifecycle,
+experiment tracking, model registry, deployment and monitoring.
+</p>
+
+<div class="author">
+Prepared by <strong>Shamura Ahmad</strong><br>
+AI Engineer | Machine Learning | MLOps<br>
+Specialized in Artificial Intelligence, Deep Learning,
+Model Development, and Production ML Systems
+</div>
+</div>
+
+
+
+<div class="highlight">
+<h2>Enterprise MLOps Overview</h2>
+<p>
+Modern machine learning systems require more than model training. In enterprise
+environments, teams need a reliable workflow to manage experiments, control
+model versions, deploy models safely, and monitor performance after release.
+MLflow provides a unified platform that connects data scientists, ML engineers,
+and DevOps teams throughout the complete machine learning lifecycle.
+</p>
+
+<p>
+This documentation explains how MLflow helps organizations transform
+experimental machine learning projects into scalable production systems by
+introducing reproducibility, governance, automation, and collaboration.
+</p>
+</div>
+
+<h1>Why MLflow Matters in Production AI</h1>
+
+<p>
+A machine learning model can fail in production even when it performs well
+during development. Common challenges include missing experiment records,
+unknown model versions, dependency conflicts, manual deployment processes,
+and difficulty reproducing previous results.
+</p>
+
+<p>
+MLflow solves these challenges by providing structured experiment tracking,
+standardized model packaging, lifecycle management, and deployment support.
+It creates a bridge between research environments and production AI platforms.
+</p>
+
+
+<h1>MLflow in the Modern AI Lifecycle</h1>
+
+<ul>
+<li><strong>Development:</strong> Data scientists train and compare multiple models.</li>
+<li><strong>Tracking:</strong> Parameters, metrics, datasets, and artifacts are recorded.</li>
+<li><strong>Validation:</strong> Teams evaluate model quality before deployment.</li>
+<li><strong>Registry:</strong> Approved models are versioned and managed.</li>
+<li><strong>Deployment:</strong> Models are served through APIs, containers, or cloud platforms.</li>
+<li><strong>Monitoring:</strong> Production performance is continuously observed.</li>
+</ul>
+
+
+<h1>Enterprise Benefits</h1>
+
+<p>
+MLflow improves collaboration by creating a common workflow between different
+roles involved in AI development. Data scientists can focus on experimentation,
+ML engineers can manage model pipelines, and DevOps teams can automate reliable
+deployment processes.
+</p>
+
+<ul>
+<li>Improved model reproducibility</li>
+<li>Better experiment comparison</li>
+<li>Controlled model lifecycle management</li>
+<li>Faster deployment workflows</li>
+<li>Better governance and auditing</li>
+<li>Scalable production machine learning operations</li>
+</ul>
+
+
+</div>
+
+<h1 id="mlflow-enterprise-reference-documentation">MLflow Enterprise Reference Documentation</h1>
+<h1 id="1-introduction">1. Introduction</h1>
+<h2 id="what-is-mlflow-">What is MLflow?</h2>
+<p>MLflow is an open-source enterprise MLOps platform designed to manage the complete machine learning lifecycle. It provides a standardized framework for developing, tracking, packaging, deploying, and monitoring machine learning models.</p>
+<p>MLflow enables organizations to move from experimental notebooks to production-grade ML systems by providing tools for:</p>
+<ul>
+<li><p>Experiment tracking</p>
+</li>
+<li><p>Model version control</p>
+</li>
+<li><p>Model governance</p>
+</li>
+<li><p>Reproducible training</p>
+</li>
+<li><p>Deployment automation</p>
+</li>
+<li><p>Production monitoring</p>
+</li>
+<li><p>Generative AI observability</p>
+</li>
+</ul>
+<p>MLflow works with popular ML frameworks:</p>
+<ul>
+<li><p>Scikit-learn</p>
+</li>
+<li><p>TensorFlow</p>
+</li>
+<li><p>PyTorch</p>
+</li>
+<li><p>XGBoost</p>
+</li>
+<li><p>LightGBM</p>
+</li>
+<li><p>Hugging Face</p>
+</li>
+<li><p>OpenAI-based applications</p>
+</li>
+</ul>
+<hr>
+<h1 id="2-why-mlflow-is-required-in-enterprise-ml">2. Why MLflow is Required in Enterprise ML</h1>
+<p>Without MLflow:</p>
+<pre><code>Data Scientist A
+      <span class="hljs-string">|</span>
+      <span class="hljs-string">|</span>
+model_v1.pkl
+
+Data Scientist B
+      <span class="hljs-string">|</span>
+      <span class="hljs-string">|</span>
+final_model_new.pkl
+
+Data Scientist C
+      <span class="hljs-string">|</span>
+      <span class="hljs-string">|</span>
+best_model_latest.pkl
+</code></pre><p>Problems:</p>
+<ul>
+<li><p>Unknown best model</p>
+</li>
+<li><p>Missing experiment history</p>
+</li>
+<li><p>No reproducibility</p>
+</li>
+<li><p>Manual deployment</p>
+</li>
+<li><p>No governance</p>
+</li>
+</ul>
+<p>With MLflow:</p>
+<pre><code>Experiment
+
+      <span class="hljs-string">|</span>
+
+Tracked Runs
+
+      <span class="hljs-string">|</span>
+
+Versioned Models
+
+      <span class="hljs-string">|</span>
+
+Approved Deployment
+
+      <span class="hljs-string">|</span>
+
+Production Monitoring
+</code></pre><hr>
+<h1 id="3-mlflow-architecture">3. MLflow Architecture</h1>
+<pre><code>                            Users
+
+
+                       Data Scientists
+                        <span class="hljs-keyword">ML</span> Engineers
+                        DevOps Teams
+
+
+                             |
+
+                             <span class="hljs-type">▼
+
+
+                    MLflow</span> Client API
+
+
+              Python SDK | <span class="hljs-type">CLI</span> | <span class="hljs-type">REST</span> API
+
+
+                             |
+
+                             <span class="hljs-type">▼
+
+
+              ┌────────────────────────┐
+              │ MLflow</span> Tracking Server │
+              └────────────┬───────────┘
+
+
+                           |
+
+          <span class="hljs-type">┌────────────────┴────────────────┐
+
+
+          ▼                                 ▼
+
+
+┌───────────────────┐              ┌───────────────────┐
+│ Backend</span> Database  │              │ Artifact Storage  │
+│                   │              │                   │
+│ PostgreSQL        │              │ AWS S3             │
+│ MySQL             │              │ Azure Blob         │
+│ SQLite            │              │ GCP Storage        │
+└───────────────────┘              └───────────────────┘
+
+
+                           |
+
+                           <span class="hljs-type">▼
+
+
+                ┌────────────────────┐
+                │ Model</span> Registry     │
+                │                    │
+                │ Versions           │
+                │ Stages             │
+                │ Aliases            │
+                └─────────┬──────────┘
+
+
+                          |
+
+                          <span class="hljs-type">▼
+
+
+                ┌────────────────────┐
+                │ Deployment</span> Layer   │
+                │                    │
+                │ REST API           │
+                │ Docker             │
+                │ Kubernetes         │
+                └────────────────────┘
+</code></pre><hr>
+<h1 id="4-mlflow-core-components">4. MLflow Core Components</h1>
+<p>MLflow consists of four major components.</p>
+<hr>
+<h1 id="4-1-mlflow-tracking">4.1 MLflow Tracking</h1>
+<h2 id="purpose">Purpose</h2>
+<p>MLflow Tracking records every experiment execution.</p>
+<p>It stores:</p>
+<ul>
+<li><p>Parameters</p>
+</li>
+<li><p>Metrics</p>
+</li>
+<li><p>Artifacts</p>
+</li>
+<li><p>Logs</p>
+</li>
+<li><p>Source information</p>
+</li>
+<li><p>Environment details</p>
+</li>
+</ul>
+<p>Example:</p>
+<pre><code><span class="hljs-section">Experiment:
+</span>
+Customer_Churn
+
+<span class="hljs-section">Run:
+</span>
+RandomForest_Model
+
+<span class="hljs-section">Parameters:</span>
+n_estimators = 200
+max_depth = 10
+
+<span class="hljs-section">Metrics:</span>
+accuracy = 0.95
+f1_score = 0.93
+
+
+<span class="hljs-section">Artifacts:
+</span>
+model.pkl
+report.pdf
+</code></pre><hr>
+<h1 id="4-2-mlflow-projects">4.2 MLflow Projects</h1>
+<p>MLflow Projects provide a standard format for packaging ML code.</p>
+<p>A project contains:</p>
+<pre><code>project/
+
+
+│
+├── MLproject
+│
+├── requirements<span class="hljs-selector-class">.txt</span>
+│
+├── train<span class="hljs-selector-class">.py</span>
+│
+└── model/
+</code></pre><p>The MLproject file defines:</p>
+<ul>
+<li><p>Entry points</p>
+</li>
+<li><p>Dependencies</p>
+</li>
+<li><p>Execution environment</p>
+</li>
+</ul>
+<p>Example:</p>
+<pre><code class="lang-yaml"><span class="hljs-attribute">name</span>: churn_prediction
+
+<span class="http">
+<span class="hljs-attribute">conda_env</span>: conda.yaml
+
+<span class="vim">
+entry_point<span class="hljs-variable">s:</span>
+
+ train:
+
+  <span class="hljs-keyword">command</span>:
+
+   <span class="hljs-keyword">python</span> train.<span class="hljs-keyword">py</span></span></span>
+</code></pre>
+<p>Run:</p>
+<pre><code class="lang-bash">mlflow <span class="hljs-keyword">run</span><span class="bash"> .</span>
+</code></pre>
+<hr>
+<h1 id="4-3-mlflow-models">4.3 MLflow Models</h1>
+<p>MLflow Models provide a standard model packaging format.</p>
+<p>Model structure:</p>
+<pre><code>model/
+
+
+│
+├── MLmodel
+
+│
+├── model<span class="hljs-selector-class">.pkl</span>
+
+│
+├── requirements<span class="hljs-selector-class">.txt</span>
+
+│
+└── python_env.yaml
+</code></pre><p>The MLmodel file contains:</p>
+<pre><code>Framework
+
+Model Flavor
+
+<span class="hljs-keyword">Dependencies</span>
+
+Input Schema
+
+Output Schema
+</code></pre><p>Supported flavors:</p>
+<ul>
+<li><p>sklearn</p>
+</li>
+<li><p>pytorch</p>
+</li>
+<li><p>tensorflow</p>
+</li>
+<li><p>python_function</p>
+</li>
+</ul>
+<hr>
+<h1 id="4-4-mlflow-model-registry">4.4 MLflow Model Registry</h1>
+<p>Model Registry manages model lifecycle.</p>
+<p>Architecture:</p>
+<pre><code>
+Training
+
+   <span class="hljs-string">|</span>
+
+   ▼
+
+Registered Model
+
+   <span class="hljs-string">|</span>
+
+   ▼
+
+Version <span class="hljs-number">1</span>
+
+   <span class="hljs-string">|</span>
+
+   ▼
+
+Validation
+
+   <span class="hljs-string">|</span>
+
+   ▼
+
+Staging
+
+   <span class="hljs-string">|</span>
+
+   ▼
+
+Production
+
+   <span class="hljs-string">|</span>
+
+   ▼
+
+Archived
+</code></pre><p>Registry stores:</p>
+<ul>
+<li><p>Model name</p>
+</li>
+<li><p>Version</p>
+</li>
+<li><p>Description</p>
+</li>
+<li><p>Owner</p>
+</li>
+<li><p>Metrics</p>
+</li>
+<li><p>Deployment state</p>
+</li>
+</ul>
+<hr>
+<h1 id="5-installation">5. Installation</h1>
+<h2 id="basic-installation">Basic Installation</h2>
+<pre><code class="lang-bash">pip <span class="hljs-keyword">install</span> mlflow
+</code></pre>
+<p>Verify:</p>
+<pre><code class="lang-bash">mlflow <span class="hljs-comment">--version</span>
+</code></pre>
+<hr>
+<h2 id="enterprise-dependencies">Enterprise Dependencies</h2>
+<pre><code class="lang-bash">pip install <span class="hljs-string">\</span>
+
+mlflow <span class="hljs-string">\</span>
+
+psycopg2-binary <span class="hljs-string">\</span>
+
+boto3 <span class="hljs-string">\</span>
+
+docker <span class="hljs-string">\</span>
+
+pandas <span class="hljs-string">\</span>
+
+scikit-learn
+</code></pre>
+<hr>
+<h1 id="6-mlflow-server-setup">6. MLflow Server Setup</h1>
+<h2 id="local-development">Local Development</h2>
+<pre><code class="lang-bash">mlflow server \
+
+-<span class="ruby">-backend-store-uri <span class="hljs-symbol">sqlite:</span>/<span class="hljs-regexp">//mlflow</span>.db \
+</span>
+-<span class="ruby">-default-artifact-root ./artifacts \
+</span>
+-<span class="ruby">-host <span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span> \
+</span>
+-<span class="ruby">-port <span class="hljs-number">5000</span></span>
+</code></pre>
+<p>Access:</p>
+<pre><code><span class="hljs-symbol">http:</span><span class="hljs-comment">//localhost:5000</span>
+</code></pre><hr>
+<h1 id="production-architecture">Production Architecture</h1>
+<pre><code>
+              MLflow Server
+
+
+                    |<span class="hljs-string">
+
+        ----------------------------
+
+
+        </span>|<span class="hljs-string">                          </span>|
+
+
+        ▼                          ▼
+
+
+ PostgreSQL                 Cloud Storage
+
+
+ Metadata                  Model Files
+</code></pre><hr>
+<p>Production command:</p>
+<pre><code class="lang-bash">mlflow server \
+
+-<span class="ruby">-backend-store-uri \
+</span>
+postgresql://user:password@host/mlflow \
+
+
+-<span class="ruby">-default-artifact-root \
+</span>
+s3://mlflow-artifacts \
+
+
+-<span class="ruby">-host <span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span> \
+</span>
+
+-<span class="ruby">-port <span class="hljs-number">5000</span></span>
+</code></pre>
+<hr>
+<h1 id="7-experiment-tracking-implementation">7. Experiment Tracking Implementation</h1>
+<p>Example:</p>
+<pre><code class="lang-python"><span class="hljs-selector-tag">import</span> <span class="hljs-selector-tag">mlflow</span>
+
+
+<span class="hljs-selector-tag">mlflow</span><span class="hljs-selector-class">.set_tracking_uri</span>(
+<span class="hljs-string">"http://localhost:5000"</span>
+)
+
+
+<span class="hljs-selector-tag">mlflow</span><span class="hljs-selector-class">.set_experiment</span>(
+<span class="hljs-string">"Fraud Detection"</span>
+)
+
+
+
+<span class="hljs-selector-tag">with</span> <span class="hljs-selector-tag">mlflow</span><span class="hljs-selector-class">.start_run</span>():
+
+
+    <span class="hljs-selector-tag">mlflow</span><span class="hljs-selector-class">.log_param</span>(
+    <span class="hljs-string">"algorithm"</span>,
+    <span class="hljs-string">"XGBoost"</span>
+    )
+
+
+    <span class="hljs-selector-tag">mlflow</span><span class="hljs-selector-class">.log_metric</span>(
+    <span class="hljs-string">"accuracy"</span>,
+    <span class="hljs-number">0.96</span>
+    )
+</code></pre>
+<hr>
+<h1 id="8-logging-parameters">8. Logging Parameters</h1>
+<p>Parameters define model configuration.</p>
+<p>Example:</p>
+<pre><code class="lang-python">
+mlflow.log_params({
+
+<span class="hljs-string">"learning_rate"</span>:<span class="hljs-number">0</span>.<span class="hljs-number">001</span>,
+
+<span class="hljs-string">"batch_size"</span>:<span class="hljs-number">64</span>,
+
+<span class="hljs-string">"epochs"</span>:<span class="hljs-number">50</span>
+
+})
+</code></pre>
+<hr>
+<h1 id="9-logging-metrics">9. Logging Metrics</h1>
+<p>Metrics represent model performance.</p>
+<p>Example:</p>
+<pre><code class="lang-python">
+mlflow.log_metrics({
+
+<span class="hljs-string">"accuracy"</span>:<span class="hljs-number">0</span>.<span class="hljs-number">95</span>,
+
+<span class="hljs-string">"precision"</span>:<span class="hljs-number">0</span>.<span class="hljs-number">94</span>,
+
+<span class="hljs-string">"recall"</span>:<span class="hljs-number">0</span>.<span class="hljs-number">92</span>,
+
+<span class="hljs-string">"f1_score"</span>:<span class="hljs-number">0</span>.<span class="hljs-number">93</span>
+
+})
+</code></pre>
+<hr>
+<h1 id="10-logging-artifacts">10. Logging Artifacts</h1>
+<p>Artifacts include:</p>
+<pre><code>
+model<span class="hljs-selector-class">.pkl</span>
+
+confusion_matrix<span class="hljs-selector-class">.png</span>
+
+training_report<span class="hljs-selector-class">.pdf</span>
+
+feature_importance.csv
+</code></pre><p>Code:</p>
+<pre><code class="lang-python">
+<span class="hljs-selector-tag">mlflow</span><span class="hljs-selector-class">.log_artifact</span>(
+"<span class="hljs-selector-tag">report</span><span class="hljs-selector-class">.pdf</span>"
+)
+</code></pre>
+<hr>
+<h1 id="11-complete-training-example">11. Complete Training Example</h1>
+<pre><code class="lang-python">
+<span class="hljs-keyword">import</span> mlflow
+<span class="hljs-keyword">import</span> mlflow.sklearn
+
+
+from sklearn.ensemble <span class="hljs-keyword">import</span> RandomForestClassifier
+
+
+mlflow.set_experiment(
+<span class="hljs-string">"Customer_Model"</span>
+)
+
+
+
+with mlflow.start_run():
+
+
+    model = RandomForestClassifier(
+
+        n_estimators=200
+
+    )
+
+
+    model.fit(
+
+        X_train,
+
+        y_train
+
+    )
+
+
+    accuracy=model.score(
+
+        X_test,
+
+        y_test
+
+    )
+
+
+    mlflow.log_param(
+
+    <span class="hljs-string">"trees"</span>,
+
+    200
+
+    )
+
+
+    mlflow.log_metric(
+
+    <span class="hljs-string">"accuracy"</span>,
+
+    accuracy
+
+    )
+
+
+    mlflow.sklearn.log_model(
+
+    model,
+
+    <span class="hljs-string">"model"</span>
+
+    )
+</code></pre>
+<hr>
+<h1 id="12-query-best-model-run">12. Query Best Model Run</h1>
+<pre><code class="lang-python">
+from mlflow.tracking <span class="hljs-built_in">import</span> MlflowClient
+
+
+<span class="hljs-attr">client=MlflowClient()</span>
+
+
+
+<span class="hljs-attr">runs=client.search_runs(</span>
+
+<span class="hljs-attr">experiment_ids=["1"],</span>
+
+<span class="hljs-attr">order_by=[</span>
+
+<span class="hljs-string">"metrics.accuracy DESC"</span>
+
+]
+
+)
+
+
+<span class="hljs-attr">best=runs[0]</span>
+
+
+print(
+
+best.info.run_id
+
+)
+</code></pre>
+<hr>
+<h1 id="13-model-registration">13. Model Registration</h1>
+<p>Register:</p>
+<pre><code class="lang-python"><span class="hljs-selector-tag">mlflow</span><span class="hljs-selector-class">.register_model</span>(
+
+<span class="hljs-string">"runs:/RUN_ID/model"</span>,
+
+<span class="hljs-string">"Customer_Model"</span>
+
+)
+</code></pre>
+<hr>
+<h1 id="14-model-version-management">14. Model Version Management</h1>
+<p>Example:</p>
+<pre><code>Customer_Model
+
+
+<span class="hljs-keyword">Version</span> <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">Accuracy</span>:
+<span class="hljs-number">90</span>%
+
+
+<span class="hljs-keyword">Version</span> <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">Accuracy</span>:
+<span class="hljs-number">95</span>%
+
+
+<span class="hljs-keyword">Version</span> <span class="hljs-number">3</span>
+
+<span class="hljs-keyword">Accuracy</span>:
+<span class="hljs-number">97</span>%
+</code></pre><hr>
+<h1 id="15-model-alias-management">15. Model Alias Management</h1>
+<p>Production alias:</p>
+<pre><code class="lang-python">
+client.set_registered_model_alias(
+
+<span class="hljs-built_in">name</span>=<span class="hljs-string">"Customer_Model"</span>,
+
+<span class="hljs-built_in">alias</span>=<span class="hljs-string">"champion"</span>,
+
+<span class="hljs-built_in">version</span>=<span class="hljs-number">3</span>
+
+)
+</code></pre>
+<p>Load:</p>
+<pre><code class="lang-python">
+model = mlflow<span class="hljs-selector-class">.pyfunc</span><span class="hljs-selector-class">.load_model</span>(
+
+<span class="hljs-string">"models:/Customer_Model@champion"</span>
+
+)
+</code></pre>
+<hr>
+
+
+
+<script>
+document.querySelectorAll("pre").forEach((block) => {
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "code-wrapper";
+
+    block.parentNode.insertBefore(wrapper, block);
+    wrapper.appendChild(block);
+
+    const button = document.createElement("button");
+    button.className = "copy-btn";
+    button.innerText = "Copy";
+
+    button.onclick = () => {
+
+        navigator.clipboard.writeText(block.innerText);
+
+        button.innerText = "Copied";
+
+        setTimeout(() => {
+            button.innerText = "Copy";
+        },1500);
+
+    };
+
+    wrapper.appendChild(button);
+
+});
+</script>
+
+</body>
+</html>
