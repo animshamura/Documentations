@@ -4,7 +4,7 @@
 
 A comprehensive enterprise reference guide covering the complete MLflow lifecycle including experiment tracking, model packaging, model registry, deployment workflows, and production monitoring.
 
-**Author -- Shamura Ahmad**  
+**Author ~ Shamura Ahmad**  
 AI Engineer | Machine Learning | MLOps  
 
 Specialized in Artificial Intelligence, Deep Learning, Model Development, and Production Machine Learning Systems
