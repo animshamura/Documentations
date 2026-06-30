@@ -1,10 +1,5 @@
 
 # MLflow Enterprise Reference Documentation
-## Author
-**Shamura Ahmad**  
-AI Engineer | Machine Learning | MLOps  
-
-
 ---
 
 # 1. Introduction
